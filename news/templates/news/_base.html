@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}FinNews{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{% block description %}Minimal financial news aggregator.{% endblock %}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mini.css@3.0.1/dist/mini-default.min.css">
+	{% block extra_css %}{% endblock %}
+</head>
+<body>	
+	<!-- Top Header -->
+	{% include "news/components/top_header.html" %}
+
+	<!-- Main Content -->
+	<main class="container">
+		{% block content %}
+			<p class="center">Empty page :(</p>
+		{% endblock %}
+	</main>
+
+	<!-- Footer -->
+	{% include "news/components/footer.html" %}
+</body>
+</html>

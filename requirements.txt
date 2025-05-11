@@ -1,0 +1,19 @@
+# Core
+Django==5.1.1
+django-environ==0.11.2
+
+# Celery & Redis
+celery==5.3.6
+redis==5.0.1
+django-celery-beat==2.6.0
+
+# Feed parser
+django-feed-reader==2.0.0
+feedparser==6.0.11
+
+# Testing (optional but recommended)
+pytest==8.2.0
+pytest-django==4.8.0
+
+# Gunicorn for production (optional)
+gunicorn==22.0.0

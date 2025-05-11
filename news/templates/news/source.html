@@ -1,0 +1,33 @@
+{% extends 'news/_base.html' %}
+
+{% block title %}{{ source.name }} | FinNews{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% if source %}
+        <h2 style="margin-bottom: 0.5rem;">{{ source.name }}</h2>
+        <p style="margin-bottom: 2rem; color: #666;">{{ source.description }}</p>
+
+        {% if posts %}
+            <ul style="list-style: none; padding-left: 0;">
+                {% for post in posts %}
+                    <li style="margin-bottom: 1rem;">
+                        <a href="{{ post.link }}" target="_blank" style="text-decoration: none;">
+                            {{ post.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            {% include "news/components/pagination.html" with page_obj=posts %}
+
+        {% else %}
+            <p>No posts available for this source.</p>
+        {% endif %}
+    {% else %}
+        <p class="center">The source is not available.</p>
+    {% endif %}
+
+</div>
+{% endblock %}
