@@ -20,7 +20,7 @@ Clean UI powered by [mini.css](https://minicss.org/), built for speed and simpli
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/finnews.git
+git clone https://github.com/eddipa/finnews.git
 cd finnews
 ```
 
