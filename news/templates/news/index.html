@@ -6,38 +6,37 @@
 {% include "news/components/index_header.html" %}
 
 <div class="container">
-	{% if source_list %}
-		<div class="row">
-			{% for source in source_list %}
-				<div class="col-sm-12 col-md-6 col-lg-3" style="margin-bottom: 2rem;">
-					
-					<!-- Source Title -->
-					<h3 style="font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem;">
-						<a href="{% url 'news:source_detail' source.id %}" style="text-decoration: none; color: inherit;">
-							{{ source.name }}
-						</a>
-					</h3>
+    {% if source_list %}
+        <div class="row">
+            {% for source in source_list %}
+                <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
 
+                    <!-- Source Title -->
+                    <h3 class="fw-semibold fs-6 mb-2">
+                        <a href="{% url 'news:source_detail' source.id %}" class="text-decoration-none text-dark">
+                            {{ source.name }}
+                        </a>
+                    </h3>
 
-					<!-- Recent Posts -->
-					<ul style="list-style: none; padding-left: 0; font-size: 0.9rem;">
-						{% for post in source.posts.all|slice:":5" %}
-							<li style="margin-bottom: 0.4rem;">
-								<a href="{{ post.link }}" target="_blank" style="text-decoration: none;">
-									{{ post.title }}
-								</a>
-							</li>
-						{% empty %}
-							<li style="color: #888;">No posts</li>
-						{% endfor %}
-					</ul>
-					
-				</div>
-			{% endfor %}
-		</div>
-	{% else %}
-		<p class="center">No sources available.</p>
-	{% endif %}
+                    <!-- Recent Posts -->
+                    <ul class="list-unstyled small">
+                        {% for post in source.posts.all|slice:":5" %}
+                            <li class="mb-1">
+                                <a href="{{ post.link }}" target="_blank" class="text-decoration-none">
+                                    {{ post.title }}
+                                </a>
+                            </li>
+                        {% empty %}
+                            <li class="text-muted">No posts</li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-muted">No sources available.</p>
+    {% endif %}
 </div>
 
 {% endblock %}
